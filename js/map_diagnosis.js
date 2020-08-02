@@ -159,7 +159,7 @@ function home() {
 async function get_prediction(event){
   const form_element = document.getElementById('diagnosis-form');
   event.preventDefault();
-  const respuesta = await fetch('http://127.0.0.1:5000/api/ckd-diagnosis/read', {
+  const respuesta = await fetch('https://ckd-diagnosis.herokuapp.com/api/ckd-diagnosis/read', {
                             method: 'POST',
                             headers: {
                             "Access-Control-Allow-Origin": '*'

@@ -266,7 +266,7 @@ async function makeplotMap(genders, years, group, indicator) {
                   columns: "",
                   group: group
                 };
-  const respuesta = await fetch('http://127.0.0.1:5000/api/ckd-diagnosis/info', {
+  const respuesta = await fetch('https://ckd-diagnosis.herokuapp.com/api/ckd-diagnosis/info', {
                             method: 'POST',
                             headers: {
                             'Access-Control-Allow-Origin': '*',
@@ -339,7 +339,7 @@ async function makeplotCost(genders, years, group) {
                   columns: "Tipo",
                   group: group
                 };
-  const respuesta = await fetch('http://127.0.0.1:5000/api/ckd-diagnosis/info', {
+  const respuesta = await fetch('https://ckd-diagnosis.herokuapp.com/api/ckd-diagnosis/info', {
                             method: 'POST',
                             headers: {
                             'Access-Control-Allow-Origin': '*',
@@ -431,7 +431,7 @@ async function makeplotStates(genders, years, indicator) {
                   columns: "Año",
                   group: "sum"
                 };
-  const respuesta = await fetch('http://127.0.0.1:5000/api/ckd-diagnosis/info', {
+  const respuesta = await fetch('https://ckd-diagnosis.herokuapp.com/api/ckd-diagnosis/info', {
                             method: 'POST',
                             headers: {
                             'Access-Control-Allow-Origin': '*',
@@ -590,7 +590,7 @@ async function makeplotGender(genders, years, group, indicator) {
                   columns: "Sexo",
                   group: group
                 };
-  const respuesta = await fetch('http://127.0.0.1:5000/api/ckd-diagnosis/info', {
+  const respuesta = await fetch('https://ckd-diagnosis.herokuapp.com/api/ckd-diagnosis/info', {
                             method: 'POST',
                             headers: {
                             'Access-Control-Allow-Origin': '*',
