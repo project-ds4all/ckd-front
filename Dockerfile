@@ -1,6 +1,7 @@
+FROM nginx:1.19.1
 
-FROM nginx:alpine
-WORKDIR /usr/src/app
+COPY nginx/default.conf.template /etc/nginx/conf.d/default.conf.template
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
 COPY . /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+
+CMD /bin/bash -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon off;'
