@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Diagn&oacute;stico - ERC en Bogot&aacute;</title>
+
+    <!-- Link to Font Awesome CDN - Content Delivery Network -->
+    <script src="https://kit.fontawesome.com/3981a477fe.js" crossorigin="anonymous"></script>
+
+    <!-- Mapbox script and styles -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
+
+    <!-- Custom stylesheets -->
+    <link rel="stylesheet" href="assets/stylesheets/main.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu:100,300,400">
+  </head>
+
+  <body>
+
+    <!-- Header -->
+
+    <header class="primary-header container group">
+
+      <h1 class="logo">
+        <img src="assets/images/home/kidney.png" class="kidney-image main-index" alt="kidney">
+        <a class="main-index" href="index.html">Enfermedad Renal Cr&oacute;nica<br>en Bogot&aacute;</a>
+      </h1>
+
+      <nav class="nav primary-nav">
+        <ul>
+          <li><a href="index.html">Inicio</a></li><!--
+          --><li><a href="contexto.html">Contexto</a></li><!--
+          --><li><a href="vulnerabilidad.html">Vulnerabilidad</a></li><!--
+          --><li><a href="diagnostico.html">Diagn&oacute;stico</a></li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <!-- Lead -->
+
+    <section class="row-alt">
+      <div class="lead container">
+
+        <h1>Diagn&oacute;stico</h1>
+
+        <p>Completando el formulario de la parte inferior, podr&aacute; obtener una estimaci&oacute;n de que tan propenso es a desarrollar ERC y algunas recomendaciones para mejorar sus h&aacute;bitos y con ellos su salud.</p>
+
+      </div>
+    </section>
+
+    <section class = "mid-part mid-diagnosis">
+      <!-- Map controllers -->
+      <section class ="map controller-div">
+        <section id="form-results" class ="map main-controller map-controller">
+          <div id="form-container" class="map-controller geoloc">
+            <h3 class="vulnerability-title">Formuario de existencias m&eacute;dicas</h3>
+            <!-- Expandable Textfield -->
+            <form id="diagnosis-form">
+              <label for="address">Direcci&oacute;n:</label>
+              <input type="text" id="address" name="address"><br><br>
+              <label for="birth_date">Fecha de nacimiento:</label>
+              <input type="date" id="birth_date" name="birth_date" value="2018-07-22" min="1900-01-01" max="2022-12-31"><br><br>
+              <label for="diabetes">Diabetes:</label>
+              <select name="diabetes" id="diabetes">
+                  <option value=0>No</option>
+                  <option value=1>Si</option>
+              </select>
+              <br><br>
+              <label for="pain_in_joint">Dolor en articulaciones:</label>
+              <select name="pain_in_joint" id="pain_in_joint">
+                  <option value=0>No</option>
+                  <option value=1>Si</option>
+              </select>
+              <br><br>
+              <label for="urinary_infection">Infecci&oacute;n urinaria:</label>
+              <select name="urinary_infection" id="urinary_infection">
+                  <option value=0>No</option>
+                  <option value=1>Si</option>
+              </select>
+              <br><br>
+              <label for="hypertension">Hipertensi&oacute;n:</label>
+              <select name="hypertension" id="hypertension">
+                  <option value=0>No</option>
+                  <option value=1>Si</option>
+              </select>
+              <br><br>
+              <label for="gender">G&eacute;nero:</label><br>
+              <input type="radio" name="gender" value="male"> Masculino<br>
+              <input type="radio" name="gender" value="female"> Femenino<br>
+              <input type="radio" name="gender" value="other"> Otro<br><br>
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+        </section>
+    </section>
+
+    <section class="map main-map">
+      <div id="map"></div>
+      <script src="./js/map_diagnosis.js"></script>
+          <button onclick="home()" id="home-button"><i class="fas fa-globe-americas"></i></button>
+      </section>
+  </section>
+
+    <!-- Footer -->
+
+    <footer class="primary-footer container group">
+
+      <small>&copy; DS4A</small>
+
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Inicio</a></li><!--
+          --><li><a href="contexto.html">Contexto</a></li><!--
+          --><li><a href="vulnerabilidad.html">Vulnerabilidad</a></li><!--
+          --><li><a href="diagnostico.html">Diagn&oacute;stico</a></li>
+        </ul>
+      </nav>
+
+    </footer>
+
+  </body>
+</html>

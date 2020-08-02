@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Vulnerabilidad - ERC en Bogot&aacute;</title>
+
+    <!-- Link to Font Awesome CDN - Content Delivery Network -->
+    <script src="https://kit.fontawesome.com/3981a477fe.js" crossorigin="anonymous"></script>
+
+    <!-- Mapbox script and styles -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
+
+    <!-- Google geolocalizer -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGPJFHXOCS8H-ziAv2Tn8ZDhjAGVGwNjs"></script>
+
+    <!-- Custom stylesheets -->
+    <link rel="stylesheet" href="assets/stylesheets/main.css">
+    <link rel="stylesheet" href="assets/stylesheets/checkbox.css">
+    <link rel="stylesheet" href="assets/stylesheets/select.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu:100,300,400">
+  </head>
+
+  <body>
+
+    <!-- Header -->
+
+    <header class="primary-header container group">
+
+      <h1 class="logo">
+        <img src="assets/images/home/kidney.png" class="kidney-image main-index" alt="kidney">
+        <a class="main-index" href="index.html">Enfermedad Renal Cr&oacute;nica<br>en Bogot&aacute;</a>
+      </h1>
+
+      <nav class="nav primary-nav">
+        <ul>
+          <li><a href="index.html">Inicio</a></li><!--
+          --><li><a href="contexto.html">Contexto</a></li><!--
+          --><li><a href="vulnerabilidad.html">Vulnerabilidad</a></li><!--
+          --><li><a href="diagnostico.html">Diagn&oacute;stico</a></li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <!-- Lead -->
+
+    <section class="row-alt">
+      <div class="lead container">
+
+        <h1>Vulnerabilidad</h1>
+
+        <p>A continuaci&oacute;n encontrar&aacute; un mapa interactivo de la ciudad de Bogot&aacute, donde podr&aacute; analizar distintos factores geoespaciales relacionados con la ERC en la capital.</p>
+
+      </div>
+    </section>
+
+    <section class = "mid-part">
+      <!-- Map controllers -->
+      <section class ="map controller-div">
+        <section class ="map main-controller map-controller">
+          <h3 class="vulnerability-title">Controles del mapa</h3>
+          <div class="map-controller geoloc">
+               <!-- Expandable Textfield -->
+                <form id="geolocalizer">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                    <div class="mdl-textfield__expandable-holder">
+                      <input class="mdl-textfield__input adress-search" type="text" id="address" placeholder="Inserte su dirección">
+                    </div>
+                  </div>
+                </form>
+          </div>
+          <div class="map-controller local-select">
+                <label class="vulnerability-title" for="locality">Localidad</label>
+                <select class="form-control select shadow-none" id="locality">
+                  <option value>Seleccione...</option>
+                  <option class="01" value="01">USAQUEN</option>
+                  <option class="02" value="02">CHAPINERO</option>
+                  <option class="03" value="03">SANTA FE</option>
+                  <option class="04" value="04">SAN CRISTOBAL</option>
+                  <option class="05" value="05">USME</option>
+                  <option class="06" value="06">TUNJUELITO</option>
+                  <option class="07" value="07">BOSA</option>
+                  <option class="08" value="08">KENNEDY</option>
+                  <option class="09" value="09">FONTIBON</option>
+                  <option class="10" value="10">ENGATIVA</option>
+                  <option class="11" value="11">SUBA</option>
+                  <option class="12" value="12">BARRIOS UNIDOS</option>
+                  <option class="13" value="13">TEUSAQUILLO</option>
+                  <option class="14" value="14">LOS MARTIRES</option>
+                  <option class="15" value="15">ANTONIO NARIÑO</option>
+                  <option class="16" value="16">PUENTE ARANDA</option>
+                  <option class="17" value="17">LA CANDELARIA</option>
+                  <option class="18" value="18">RAFAEL URIBE URIBE</option>
+                  <option class="19" value="19">CIUDAD BOLIVAR</option>
+                  <option class="20" value="20">SUMAPAZ</option>
+
+                </select>
+          </div>
+          <h4 class="vulnerability-title">Pacientes</h4>
+          <div class="map-controller map-check">
+            <div class="inputGroup">
+              <input id="cases-switch" name="cases-switch" type="checkbox" class="cluster-layer" checked/>
+              <label for="cases-switch">Distribución en IPS</label>
+            </div>
+          </div>
+          <h4 class="vulnerability-title">Indicadores socioecon&oacute;micos</h4>
+          <div class="map-controller map-check">
+            <div class="inputGroup">
+              <input id="stratus-switch" name="stratus-switch" type="checkbox" class="blocks-layer" value="off"/>
+              <label for="stratus-switch">Estrato</label>
+            </div>
+          </div>
+          <div class="map-controller map-check">
+            <div class="inputGroup">
+              <input id="health-switch" name="health-switch" type="checkbox" class="blocks-layer" value="off"/>
+              <label for="health-switch">Problemas físicos y de salud</label>
+            </div>
+          </div>  
+          <div class="map-controller map-check">
+            <div class="inputGroup">
+              <input id="medicine-switch" name="medicine-switch" type="checkbox" class="blocks-layer" value="off"/>
+              <label for="medicine-switch">Confianza en medicina tradicional</label>
+            </div>
+          </div>    
+          <div class="map-controller map-check">
+            <div class="inputGroup">
+              <input id="blocks-switch" name="blocks-switch" type="checkbox" class="blocks-layer" checked/>
+              <label for="blocks-switch">Vulnerabilidad</label>
+            </div>
+          </div>
+          <h4 class="vulnerability-title">Establecimientos</h4>
+          <div class="map-controller map-check">
+            <div class="inputGroup">
+              <input id="drinks-switch" name="drinks-switch" type="checkbox" class="cluster-layer" value="off"/>
+              <label for="drinks-switch">Bares</label>
+            </div>
+          </div>
+          <h4 class="vulnerability-title">Espacios deportivos</h4>
+          <div class="map-controller map-check">
+            <div class="inputGroup">
+              <input id="parks-switch" name="parks-switch" type="checkbox" class="park-layer" checked/>
+              <label for="parks-switch">Parques</label>
+            </div>
+          </div>
+          <div class="map-controller map-check">
+            <div class="inputGroup">
+              <input id="ciclovia-switch" name="ciclovia-switch" type="checkbox" class="ciclovia-layer" checked/>
+              <label for="ciclovia-switch">Ciclovia</label>
+            </div>
+          </div>
+        </section>
+      </section>
+    <section class="map main-map">
+      <div id="map"></div>
+      <script src="./js/map.js"></script>
+          <button onclick="home()" id="home-button"><i class="fas fa-globe-americas"></i></button>
+      </section>
+  </section>
+
+    <!-- Footer -->
+
+    <footer class="primary-footer container group">
+
+      <small>&copy; DS4A</small>
+
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Inicio</a></li><!--
+          --><li><a href="contexto.html">Contexto</a></li><!--
+          --><li><a href="vulnerabilidad.html">Vulnerabilidad</a></li><!--
+          --><li><a href="diagnostico.html">Diagn&oacute;stico</a></li>
+        </ul>
+      </nav>
+
+    </footer>
+
+  </body>
+</html>

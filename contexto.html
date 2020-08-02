@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Contexto - ERC en Bogot&aacute;</title>
+
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- Custom stylesheets -->
+    <link rel="stylesheet" href="assets/stylesheets/main.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu:100,300,400">
+
+  </head>
+
+  <body>
+
+    <!-- Header -->
+
+    <header class="primary-header container group">
+
+      <h1 class="logo">
+        <img src="assets/images/home/kidney.png" class="kidney-image main-index" alt="kidney">
+        <a class="main-index" href="index.html">Enfermedad Renal Cr&oacute;nica<br>en Bogot&aacute;</a>
+      </h1>
+
+      <nav class="nav primary-nav">
+        <ul>
+          <li><a href="index.html">Inicio</a></li><!--
+          --><li><a href="contexto.html">Contexto</a></li><!--
+          --><li><a href="vulnerabilidad.html">Vulnerabilidad</a></li><!--
+          --><li><a href="diagnostico.html">Diagn&oacute;stico</a></li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <!-- Lead -->
+
+    <section class="row-alt">
+      <div class="lead container">
+
+        <h1>Contexto</h1>
+
+        <p>En esta secci&oacute;n encontrar&aacute; datos de importancia sobre el comportamiento de la enfermedad en Colombia en los &uacute;ltimos a&ntilde;os</p>
+
+      </div>
+    </section>
+
+    <!-- Main content -->
+    <section class = "mid-part">
+      <section class="dashboard">
+        <section id="dashboard-controls" class = "dashboard-controller">
+          <h3 class="vulnerability-title">Controles del dashboard</h3>
+            <label for="info-type">Indicador:</label>
+            <select id="info-type">
+              <option value="Prevalencia">Prevalencia</option>
+              <option value="Muertes">Muertes</option>
+            </select>
+            <label for="genders">Poblaci&oacute;n:</label>
+            <select id="genders">
+              <option value="Hombre,Mujer">Total</option>
+              <option value="Hombre">Hombres</option>
+              <option value="Mujer">Mujeres</option>
+            </select>
+            <label for="group-operation">Agrupaci&oacute;n:</label>
+            <select id="group-operation">
+              <option value="sum">Suma</option>
+              <option value="mean">Media</option>
+            </select>
+        </section>
+        <div id="year-control" class="content">
+          <div id="result">Año inicio: 2017  Año fin: 2019</div>
+          <div id="my-slider" se-min="2015" se-step="1" se-min-value="2017" se-max-value="2019" se-max="2019" class="slider">
+              <div class="slider-touch-left">
+                <span></span>
+              </div>
+              <div class="slider-touch-right">
+                <span></span>
+              </div>
+              <div class="slider-line">
+                <span></span>
+              </div>
+          </div>
+        </div>
+        <div id='colombia-map' class="dashboard-map "></div>
+        <div id='cost-bars' class="dashboard-cost"></div>
+        <div id='diseases-treemap' class="dashboard-diseases"></div>
+        <div id='prevalence-bars' class="dashboard-prevalence"></div>
+        <div id='prevalence-bars' class="dashboard-prevalence"></div>
+        <div id='gender-bars' class="dashboard-prevalence"></div>
+      </section>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="primary-footer container group">
+
+      <small>&copy; DS4A</small>
+
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Inicio</a></li><!--
+          --><li><a href="contexto.html">Contexto</a></li><!--
+          --><li><a href="vulnerabilidad.html">Vulnerabilidad</a></li><!--
+          --><li><a href="diagnostico.html">Diagn&oacute;stico</a></li>
+        </ul>
+      </nav>
+
+    </footer>
+
+    <!-- Custom scripts -->
+    <script src="./js/plots.js"></script>
+
+
+  </body>
+</html>
