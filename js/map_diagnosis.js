@@ -58,92 +58,6 @@ map.on( 'load', function() {
   }
   );
 
-  map.addSource( 'drink', { 
-    type: 'geojson', 
-    data: './data/drinking_places.geojson',
-    cluster: true,
-    clusterMaxZoom: 14,
-    clusterRadius: 50
-  } );
-  
-  map.addLayer( {
-    id: 'clusters',
-    type: 'circle',
-    source: 'drink',
-    filter: [ 'has', 'point_count' ],
-    paint: {
-      'circle-color': [
-        'step',
-        [ 'get', 'point_count' ],
-        '#f2ee05',
-        100,
-        '#f7900a',
-        750,
-        '#f0071e'
-      ],
-      'circle-radius': [
-        'step',
-        [ 'get', 'point_count' ],
-        20,
-        100,
-        30,
-        750,
-        40
-      ]
-    }
-  } );
- 
-  map.addLayer( {
-    id: 'cluster-count',
-    type: 'symbol',
-    source: 'drink',
-    filter: [ 'has', 'point_count' ],
-    layout: {
-      'text-field': '{point_count_abbreviated}',
-      'text-font': [ 'DIN Offc Pro Medium', 'Arial Unicode MS Bold' ],
-      'text-size': 12
-    }
-  } );
- 
-  map.addLayer( {
-    id: 'unclustered-point',
-    type: 'circle',
-    source: 'drink',
-    filter: [ '!', [ 'has', 'point_count' ] ],
-    paint: {
-      'circle-color': '#f2ee05',
-      'circle-radius': 4,
-      'circle-stroke-width': 1,
-      'circle-stroke-color': '#f2ee05'
-    }
-  } );
-
-  map.on( 'click', 'clusters', function( e ) {
-    var features = map.queryRenderedFeatures( e.point, {
-      layers: [ 'clusters' ]
-    } );
-    var clusterId = features[ 0 ].properties.cluster_id;
-    map.getSource( 'drink' ).getClusterExpansionZoom(
-      clusterId,
-      function( err, zoom ) {
-      if ( err ) return;
-      map.easeTo( {
-        center: features[ 0 ].geometry.coordinates,
-        zoom: zoom
-      } );
-      }
-    );
-  } );
-
-
-  map.on( 'mouseenter', 'clusters', function() {
-    map.getCanvas().style.cursor = 'pointer';
-  } );
-
-  map.on( 'mouseleave', 'clusters', function() {
-    map.getCanvas().style.cursor = '';
-  } );
-
 } 
 );
 
@@ -181,18 +95,6 @@ async function get_prediction(event){
   return_results(data, formRes)
 }
 
-var foodList ={
-  'protein': 'Proteinas',
-  'legumes': 'Leguminosas',
-  'fats': 'Grasas',
-  'meal': 'Harinas',
-  'sugars': 'Azúcares',
-  'dairy': 'Lácteos',
-  'vegetables': 'Verduras',
-  'fruits': 'Frutas',
-  'alcohol': 'Alcohol'
-};
-
 function return_results(answer, element){
   var CKDprob = answer['probability'];
   var title = document.createElement('h3');
@@ -205,8 +107,14 @@ function return_results(answer, element){
   probability.appendChild(textnode);
   element.appendChild(probability);
   var probParagraph = document.createElement('p');
-  var textnode = document.createTextNode("Teniendo en cuenta sus antecedentes médicos, usted tiene una probabilidad de " + CKDprob + "% de desarrollar ERC");
+  var probability = document.createElement('strong');
+  var probaText = document.createTextNode(CKDprob + "%");
+  probability.appendChild(probaText);
+  var textnode = document.createTextNode("Teniendo en cuenta sus antecedentes médicos, usted tiene una probabilidad de " );
+  var textnodeEnd = document.createTextNode(" de desarrollar ERC. Le recomendamos seguir la dieta sugerida y ejecitarse en el parque mostrado en rojo en el mapa." );
   probParagraph.appendChild(textnode);
+  probParagraph.appendChild(probability);
+  probParagraph.appendChild(textnodeEnd);
   element.appendChild(probParagraph);
   var diet = document.createElement('h4');
   var textnode = document.createTextNode("Dieta sugerida");
@@ -258,7 +166,5 @@ function return_results(answer, element){
   alcoholParagraph.appendChild(textnode);
   element.appendChild(alcoholParagraph);
 }
-
-console.log(Object.keys(foodList)[0]);
 
 document.getElementById('diagnosis-form').addEventListener('submit', get_prediction);
