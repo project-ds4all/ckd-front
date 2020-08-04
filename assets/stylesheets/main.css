@@ -424,7 +424,7 @@ section.map{
 }
 
 #map {
-  height: 850px;
+  height: 800px;
   width:100%;
 }
 
@@ -594,3 +594,9 @@ p.index-paragraph {
   padding-top: 20px;
 }
 
+.circle {
+  border-radius: 50%;
+  font-size: 16px;
+  line-height: 6px;
+  text-align: center;
+}
