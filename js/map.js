@@ -325,31 +325,31 @@ document.getElementById('blocks-switch').addEventListener('click', function() {
   layerActivation(this, map, layerDict[this.getAttribute('id')]);
 });
 
-document.getElementById('stratus-switch').addEventListener('change', function() {
+document.getElementById('stratus-switch').addEventListener('click', function() {
   layerActivation(this, map, layerDict[this.getAttribute('id')]);
 });
 
-document.getElementById('medicine-switch').addEventListener('change', function() {
+document.getElementById('medicine-switch').addEventListener('click', function() {
   layerActivation(this, map, layerDict[this.getAttribute('id')]);
 });
 
-document.getElementById('health-switch').addEventListener('change', function() {
+document.getElementById('health-switch').addEventListener('click', function() {
   layerActivation(this, map, layerDict[this.getAttribute('id')]);
 });
 
-document.getElementById('parks-switch').addEventListener('change', function() {
+document.getElementById('parks-switch').addEventListener('click', function() {
   layerActivation(this, map, layerDict[this.getAttribute('id')]);
 });
 
-document.getElementById('drinks-switch').addEventListener('change', function() {
+document.getElementById('drinks-switch').addEventListener('click', function() {
   layerActivation(this, map, layerDict[this.getAttribute('id')]);
 });
 
-document.getElementById('ciclovia-switch').addEventListener('change', function() {
+document.getElementById('ciclovia-switch').addEventListener('click', function() {
   layerActivation(this, map, layerDict[this.getAttribute('id')]);
 });
 
-document.getElementById('cases-switch').addEventListener('change', function() {
+document.getElementById('cases-switch').addEventListener('click', function() {
   layerActivation(this, map, layerDict[this.getAttribute('id')]);
 });
 
